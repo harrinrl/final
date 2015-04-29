@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+ width: 960px;
+ margin: 30px auto;}
+
+.counties {
+  fill: none;}
+
+.states {
+  fill: blue;
+  stroke: #fff;
+  stroke-linejoin: round;}
+
+.q0-9 { fill:rgb(247,251,255); }
+.q5-9 { fill:rgb(200,219,239); }
+.q6-9 { fill:rgb(158,202,225); }
+.q7-9 { fill:rgb(66,146,198); }
+.q8-9 { fill:rgb(8,48,120); }
+
+.legend {height: 20px;
+		width: 25px; 
+		margin: 3px;
+		font-family: "Slabo", serif; 
+		font-style: bold;
+		font-size: 30;
+		font-weight: heavy; 
+		outline: bold;
+		outline-color: black;
+		outline-width: 5px;
+		outline-style: heavy;
+		text-align: center;}
+		
+.five {height: 50px;
+	width: 50px;
+	background-color:rgb(198,219,239);
+	font-color: black;
+	font-family: cambria;
+	font-size: 30;}
+.six {height: 50px;
+	width: 50px;
+	background-color:rgb(158,202,225);
+	font-color: black;
+	font-family: cambria;
+	font-size: 30;}
+.seven {height: 50px;
+	width: 50px;
+	background-color:rgb(66,146,198);
+	font-color: black;
+	font-family: cambria;
+	font-size: 30;}
+.eight {height: 50px;
+	width: 50px;	
+	background-color:rgb(8,48,107);
+	font-color: white;
+	font-family: cambria;
+	font-size: 30;}
+	
+td {background: white;
+	font-family: cambria;}
+	
+h1 {font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; }
+h2 {font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+	font-size: 30;}
+h3 {font-family: cambria; 
+	float: center;
+	text-align: center; }
+	
+.article {font-family: cambria;
+	font-size: 30;}
+	
+h5 {font-family: georgia;
+	font-size: 10;
+	font-style: italic;
+	text-align: right;}
+h4 {font-family: cambria;
+	font-size: 20;
+	text-align: center;}
+	
+</style>
+<body>
+
+<h1>Laws restricting women's access to reproductive health care increase unintended pregnancies</h1>
+<h2>States with laws limiting abortion or contraception access is linked to higher unintended pregnancy rates</h2>
+<p>By <a href="https://twitter.com/HarringtonBecca">Rebecca Harrington</a></p>
+<h3><p>Unintended pregnancies by state
+<h4>"Unintended" is a mistimed or unwanted pregnancy that resulted in a birth or an abortion</h4></p>
+<div class = "map"></div>
+
+<div class = "legend"></div>
+	<span class="five">36-39 percent</span>
+	<span class="six">40-46 percent</span>
+	<span class="seven">47-53 percent</span>
+	<span class="eight">54-62 percent</span>
+
+<h5>Source: <a href="http://www.guttmacher.org/pubs/FB-Unintended-Pregnancy-US.html#box">Guttmacher Institute</a></h5>	
+	
+<div class = "article"><p>
+    More than half of pregnancies across the U.S. are unintended. This means they were either mistimed (31 percent) or unwanted (20 percent) and resulted in a
+birth (60 percent) or an abortion (40 percent). Each year, this results in 3.4 million pregnancies that were unintentional. This data comes from the    <a href="http://www.guttmacher.org/about/index.html">Guttmacher Institute</a>, an organization that tracks and supports reproductive health rights, which
+    gathered the information based on state survey programs or a mathematical model (Arizona, District of Columbia, Indiana, Kansas, Nevada, New Hampshire and
+    South Dakota, Montana and North Dakota). This number is surprisingly high, so what's driving unintended pregnancy rates?
+</p>
+<p>
+    <a href="http://www.nwlc.org/profile/kelli-garcia">Kelli Garcia</a>, senior counsel for the National Women's Law Center, said the biggest factors increasing the number of unintended pregnancies are
+    contraception education and access. The Affordable Care Act improved access to free birth control since it requires insurance programs cover contraception.
+    Public funding of contraception has been shown to have an effect on pregnancy rates, Garcia said, since cost can be a significant barrier to obtaining
+    birth control. Since the 1980s, unintended pregnancies have become concentrated among low-income women, according to the Guttmacher Institute. Garcia said
+    the full effects of the ACA haven't trickled down yet, so it may take a few years before unintended pregnancy rates decrease because of the increased
+    access to contraception.
+</p>
+<p>
+    Abstinence-only education has also been shown to drive unintended pregnancy rates up, Garcia said. During the month of conception that resulted in an
+    unintended pregnancy, 54 percent of women said they did not use birth control at all, and 41 percent said they had used it inconsistently. "Everyone needs
+    to be taught how to protect themselves in order to prevent unintended pregnancies," Garcia said.
+</p>
+<p>
+    For women who find themselves pregnant when they don't want to be, access to abortions and emergency contraception can be imperative to their health and
+    finances, and the health and economics of society as a whole. The Guttmacher Institute estimated that unintended pregnancies cost the government alone $21
+    billion in 2010. So how do these laws stack up state-by-state?
+</p></div>	
+	
+<h3>Contraception, abortion laws by state</h3>	
+	
+<link href="FooTable-2/css/footable.core.css" rel="stylesheet" type="text/css" />
+
+<table class="footable">
+  <thead>
+    <tr>
+      <th class="State-cell">State</th>
+      <th class="Percent of Pregnancies Unintended-cell">Percent of Pregnancies Unintended</th>
+      <th data-type="numeric" class="Emergency Contraception Laws-cell">Emergency Contraception Laws</th>
+      <th data-type="numeric" class="Protected Abortion Clinic Access-cell">Protected Abortion Clinic Access</th>
+      <th data-type="numeric" class="Policies on Religious Refusals for Reproductive Services-cell">Policies on Religious Refusals for Reproductive Services</th>
+      <th data-type="numeric" class="Mandatory Delay before Abortions-cell">Mandatory Delay before Abortions</th>
+      <th data-type="numeric" class="Private Insurers Coverage of Contraceptives Laws-cell">Private Insurers Coverage of Contraceptives Laws</th>
+      <th class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">Total Number of Females Aged 13-44 (Reproductive Age)</th>
+      <th class="Number of Unintended Pregnancies-cell">Number of Unintended Pregnancies</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="firstRow">
+      <td class="State-cell">Alabama</td>
+      <td class="Percent of Pregnancies Unintended-cell">55%</td>
+      <td class="Emergency Contraception Laws-cell">no</td>
+      <td class="Protected Abortion Clinic Access-cell">no</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">weak</td>
+      <td class="Mandatory Delay before Abortions-cell">harmful</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">no</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">1,002,940</td>
+      <td class="Number of Unintended Pregnancies-cell">46,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Alaska</td>
+      <td class="Percent of Pregnancies Unintended-cell">48%</td>
+      <td class="Emergency Contraception Laws-cell">weak</td>
+      <td class="Protected Abortion Clinic Access-cell">no</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">weak</td>
+      <td class="Mandatory Delay before Abortions-cell">harmful</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">no</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">151,040</td>
+      <td class="Number of Unintended Pregnancies-cell">8,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Arizona</td>
+      <td class="Percent of Pregnancies Unintended-cell">51%</td>
+      <td class="Emergency Contraception Laws-cell">no</td>
+      <td class="Protected Abortion Clinic Access-cell">no</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">limited</td>
+      <td class="Mandatory Delay before Abortions-cell">harmful</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">limited</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">1,372,470</td>
+      <td class="Number of Unintended Pregnancies-cell">61,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Arkansas</td>
+      <td class="Percent of Pregnancies Unintended-cell">55%</td>
+      <td class="Emergency Contraception Laws-cell">weak</td>
+      <td class="Protected Abortion Clinic Access-cell">no</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">harmful</td>
+      <td class="Mandatory Delay before Abortions-cell">harmful</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">limited</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">600,970</td>
+      <td class="Number of Unintended Pregnancies-cell">29,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">California</td>
+      <td class="Percent of Pregnancies Unintended-cell">48%</td>
+      <td class="Emergency Contraception Laws-cell">meets</td>
+      <td class="Protected Abortion Clinic Access-cell">limited</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">meets</td>
+      <td class="Mandatory Delay before Abortions-cell">meets</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">limited</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">8,282,440</td>
+      <td class="Number of Unintended Pregnancies-cell">393,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Colorado</td>
+      <td class="Percent of Pregnancies Unintended-cell">45%</td>
+      <td class="Emergency Contraception Laws-cell">weak</td>
+      <td class="Protected Abortion Clinic Access-cell">limited</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">harmful</td>
+      <td class="Mandatory Delay before Abortions-cell">meets</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">meets</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">1,080,470</td>
+      <td class="Number of Unintended Pregnancies-cell">43,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Connecticut</td>
+      <td class="Percent of Pregnancies Unintended-cell">51%</td>
+      <td class="Emergency Contraception Laws-cell">limited</td>
+      <td class="Protected Abortion Clinic Access-cell">no</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">weak</td>
+      <td class="Mandatory Delay before Abortions-cell">meets</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">weak</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">738,410</td>
+      <td class="Number of Unintended Pregnancies-cell">32,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Delaware</td>
+      <td class="Percent of Pregnancies Unintended-cell">57%</td>
+      <td class="Emergency Contraception Laws-cell">no</td>
+      <td class="Protected Abortion Clinic Access-cell">no</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">weak</td>
+      <td class="Mandatory Delay before Abortions-cell">meets</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">weak</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">187,800</td>
+      <td class="Number of Unintended Pregnancies-cell">11,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">DC</td>
+      <td class="Percent of Pregnancies Unintended-cell">62%</td>
+      <td class="Emergency Contraception Laws-cell">limited</td>
+      <td class="Protected Abortion Clinic Access-cell">limited</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">weak</td>
+      <td class="Mandatory Delay before Abortions-cell">meets</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">no</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">154,660</td>
+      <td class="Number of Unintended Pregnancies-cell">10,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Florida</td>
+      <td class="Percent of Pregnancies Unintended-cell">59%</td>
+      <td class="Emergency Contraception Laws-cell">no</td>
+      <td class="Protected Abortion Clinic Access-cell">no</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">harmful</td>
+      <td class="Mandatory Delay before Abortions-cell">meets</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">no</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">3,683,850</td>
+      <td class="Number of Unintended Pregnancies-cell">207,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Georgia</td>
+      <td class="Percent of Pregnancies Unintended-cell">60%</td>
+      <td class="Emergency Contraception Laws-cell">no</td>
+      <td class="Protected Abortion Clinic Access-cell">no</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">harmful</td>
+      <td class="Mandatory Delay before Abortions-cell">harmful</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">meets</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">2,202,000</td>
+      <td class="Number of Unintended Pregnancies-cell">119,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Hawaii</td>
+      <td class="Percent of Pregnancies Unintended-cell">56%</td>
+      <td class="Emergency Contraception Laws-cell">weak</td>
+      <td class="Protected Abortion Clinic Access-cell">no</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">weak</td>
+      <td class="Mandatory Delay before Abortions-cell">meets</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">limited</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">263,770</td>
+      <td class="Number of Unintended Pregnancies-cell">16,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Idaho</td>
+      <td class="Percent of Pregnancies Unintended-cell">39%</td>
+      <td class="Emergency Contraception Laws-cell">no</td>
+      <td class="Protected Abortion Clinic Access-cell">no</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">harmful</td>
+      <td class="Mandatory Delay before Abortions-cell">harmful</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">weak</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">322,800</td>
+      <td class="Number of Unintended Pregnancies-cell">12,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Illinois</td>
+      <td class="Percent of Pregnancies Unintended-cell">52%</td>
+      <td class="Emergency Contraception Laws-cell">weak</td>
+      <td class="Protected Abortion Clinic Access-cell">no</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">harmful</td>
+      <td class="Mandatory Delay before Abortions-cell">meets</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">meets</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">2,852,200</td>
+      <td class="Number of Unintended Pregnancies-cell">128,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Indiana</td>
+      <td class="Percent of Pregnancies Unintended-cell">49%</td>
+      <td class="Emergency Contraception Laws-cell">no</td>
+      <td class="Protected Abortion Clinic Access-cell">no</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">weak</td>
+      <td class="Mandatory Delay before Abortions-cell">harmful</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">no</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">1,366,660</td>
+      <td class="Number of Unintended Pregnancies-cell">55,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Iowa</td>
+      <td class="Percent of Pregnancies Unintended-cell">43%</td>
+      <td class="Emergency Contraception Laws-cell">no</td>
+      <td class="Protected Abortion Clinic Access-cell">no</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">weak</td>
+      <td class="Mandatory Delay before Abortions-cell">meets</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">meets</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">617,770</td>
+      <td class="Number of Unintended Pregnancies-cell">23,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Kansas</td>
+      <td class="Percent of Pregnancies Unintended-cell">45%</td>
+      <td class="Emergency Contraception Laws-cell">no</td>
+      <td class="Protected Abortion Clinic Access-cell">limited</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">weak</td>
+      <td class="Mandatory Delay before Abortions-cell">harmful</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">no</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">590,200</td>
+      <td class="Number of Unintended Pregnancies-cell">24,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Kentucky</td>
+      <td class="Percent of Pregnancies Unintended-cell">47%</td>
+      <td class="Emergency Contraception Laws-cell">no</td>
+      <td class="Protected Abortion Clinic Access-cell">no</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">weak</td>
+      <td class="Mandatory Delay before Abortions-cell">harmful</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">weak</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">916,390</td>
+      <td class="Number of Unintended Pregnancies-cell">34,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Louisiana</td>
+      <td class="Percent of Pregnancies Unintended-cell">60%</td>
+      <td class="Emergency Contraception Laws-cell">no</td>
+      <td class="Protected Abortion Clinic Access-cell">no</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">meets</td>
+      <td class="Mandatory Delay before Abortions-cell">harmful</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">no</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">980,600</td>
+      <td class="Number of Unintended Pregnancies-cell">53,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Maine</td>
+      <td class="Percent of Pregnancies Unintended-cell">48%</td>
+      <td class="Emergency Contraception Laws-cell">weak</td>
+      <td class="Protected Abortion Clinic Access-cell">limited</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">harmful</td>
+      <td class="Mandatory Delay before Abortions-cell">meets</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">weak</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">265,510</td>
+      <td class="Number of Unintended Pregnancies-cell">9,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Maryland</td>
+      <td class="Percent of Pregnancies Unintended-cell">58%</td>
+      <td class="Emergency Contraception Laws-cell">no</td>
+      <td class="Protected Abortion Clinic Access-cell">limited</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">harmful</td>
+      <td class="Mandatory Delay before Abortions-cell">meets</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">weak</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">1,255,430</td>
+      <td class="Number of Unintended Pregnancies-cell">71,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Massachusetts</td>
+      <td class="Percent of Pregnancies Unintended-cell">47%</td>
+      <td class="Emergency Contraception Laws-cell">meets</td>
+      <td class="Protected Abortion Clinic Access-cell">limited</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">harmful</td>
+      <td class="Mandatory Delay before Abortions-cell">meets</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">weak</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">1,437,790</td>
+      <td class="Number of Unintended Pregnancies-cell">54,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Michigan</td>
+      <td class="Percent of Pregnancies Unintended-cell">54%</td>
+      <td class="Emergency Contraception Laws-cell">no</td>
+      <td class="Protected Abortion Clinic Access-cell">limited</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">weak</td>
+      <td class="Mandatory Delay before Abortions-cell">harmful</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">no</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">2,138,980</td>
+      <td class="Number of Unintended Pregnancies-cell">93,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Minnesota</td>
+      <td class="Percent of Pregnancies Unintended-cell">40%</td>
+      <td class="Emergency Contraception Laws-cell">limited</td>
+      <td class="Protected Abortion Clinic Access-cell">limited</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">weak</td>
+      <td class="Mandatory Delay before Abortions-cell">harmful</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">weak</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">1,116,230</td>
+      <td class="Number of Unintended Pregnancies-cell">38,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Mississippi</td>
+      <td class="Percent of Pregnancies Unintended-cell">62%</td>
+      <td class="Emergency Contraception Laws-cell">no</td>
+      <td class="Protected Abortion Clinic Access-cell">no</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">harmful</td>
+      <td class="Mandatory Delay before Abortions-cell">harmful</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">no</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">645,430</td>
+      <td class="Number of Unintended Pregnancies-cell">35,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Missouri</td>
+      <td class="Percent of Pregnancies Unintended-cell">51%</td>
+      <td class="Emergency Contraception Laws-cell">no</td>
+      <td class="Protected Abortion Clinic Access-cell">no</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">weak</td>
+      <td class="Mandatory Delay before Abortions-cell">harmful</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">weak</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">1,262,090</td>
+      <td class="Number of Unintended Pregnancies-cell">54,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Montana</td>
+      <td class="Percent of Pregnancies Unintended-cell">45%</td>
+      <td class="Emergency Contraception Laws-cell">no</td>
+      <td class="Protected Abortion Clinic Access-cell">limited</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">harmful</td>
+      <td class="Mandatory Delay before Abortions-cell">meets</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">no</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">193,200</td>
+      <td class="Number of Unintended Pregnancies-cell">7,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Nebraska</td>
+      <td class="Percent of Pregnancies Unintended-cell">43%</td>
+      <td class="Emergency Contraception Laws-cell">no</td>
+      <td class="Protected Abortion Clinic Access-cell">no</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">weak</td>
+      <td class="Mandatory Delay before Abortions-cell">harmful</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">no</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">374,430</td>
+      <td class="Number of Unintended Pregnancies-cell">14,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Nevada</td>
+      <td class="Percent of Pregnancies Unintended-cell">52%</td>
+      <td class="Emergency Contraception Laws-cell">no</td>
+      <td class="Protected Abortion Clinic Access-cell">limited</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">limited</td>
+      <td class="Mandatory Delay before Abortions-cell">meets</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">weak</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">554,510</td>
+      <td class="Number of Unintended Pregnancies-cell">29,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">New Hampshire</td>
+      <td class="Percent of Pregnancies Unintended-cell">43%</td>
+      <td class="Emergency Contraception Laws-cell">weak</td>
+      <td class="Protected Abortion Clinic Access-cell">no</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">weak</td>
+      <td class="Mandatory Delay before Abortions-cell">meets</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">meets</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">276,360</td>
+      <td class="Number of Unintended Pregnancies-cell">8,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">New Jersey</td>
+      <td class="Percent of Pregnancies Unintended-cell">53%</td>
+      <td class="Emergency Contraception Laws-cell">limited</td>
+      <td class="Protected Abortion Clinic Access-cell">no</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">harmful</td>
+      <td class="Mandatory Delay before Abortions-cell">meets</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">weak</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">1,846,230</td>
+      <td class="Number of Unintended Pregnancies-cell">97,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">New Mexico</td>
+      <td class="Percent of Pregnancies Unintended-cell">55%</td>
+      <td class="Emergency Contraception Laws-cell">meets</td>
+      <td class="Protected Abortion Clinic Access-cell">no</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">weak</td>
+      <td class="Mandatory Delay before Abortions-cell">meets</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">weak</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">424,080</td>
+      <td class="Number of Unintended Pregnancies-cell">22,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">New York</td>
+      <td class="Percent of Pregnancies Unintended-cell">55%</td>
+      <td class="Emergency Contraception Laws-cell">limited</td>
+      <td class="Protected Abortion Clinic Access-cell">limited</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">limited</td>
+      <td class="Mandatory Delay before Abortions-cell">meets</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">limited</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">4,324,320</td>
+      <td class="Number of Unintended Pregnancies-cell">246,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">North Carolina</td>
+      <td class="Percent of Pregnancies Unintended-cell">54%</td>
+      <td class="Emergency Contraception Laws-cell">no</td>
+      <td class="Protected Abortion Clinic Access-cell">limited</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">weak</td>
+      <td class="Mandatory Delay before Abortions-cell">meets</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">limited</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">2,009,400</td>
+      <td class="Number of Unintended Pregnancies-cell">95,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">North Dakota</td>
+      <td class="Percent of Pregnancies Unintended-cell">44%</td>
+      <td class="Emergency Contraception Laws-cell">no</td>
+      <td class="Protected Abortion Clinic Access-cell">no</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">weak</td>
+      <td class="Mandatory Delay before Abortions-cell">harmful</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">weak</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">133,100</td>
+      <td class="Number of Unintended Pregnancies-cell">5,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Ohio</td>
+      <td class="Percent of Pregnancies Unintended-cell">55%</td>
+      <td class="Emergency Contraception Laws-cell">no</td>
+      <td class="Protected Abortion Clinic Access-cell">no</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">weak</td>
+      <td class="Mandatory Delay before Abortions-cell">harmful</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">weak</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">2,436,870</td>
+      <td class="Number of Unintended Pregnancies-cell">109,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Oklahoma</td>
+      <td class="Percent of Pregnancies Unintended-cell">51%</td>
+      <td class="Emergency Contraception Laws-cell">no</td>
+      <td class="Protected Abortion Clinic Access-cell">no</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">harmful</td>
+      <td class="Mandatory Delay before Abortions-cell">harmful</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">weak</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">768,680</td>
+      <td class="Number of Unintended Pregnancies-cell">36,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Oregon</td>
+      <td class="Percent of Pregnancies Unintended-cell">46%</td>
+      <td class="Emergency Contraception Laws-cell">limited</td>
+      <td class="Protected Abortion Clinic Access-cell">limited</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">weak</td>
+      <td class="Mandatory Delay before Abortions-cell">meets</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">limited</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">795,360</td>
+      <td class="Number of Unintended Pregnancies-cell">31,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Pennsylvania</td>
+      <td class="Percent of Pregnancies Unintended-cell">53%</td>
+      <td class="Emergency Contraception Laws-cell">weak</td>
+      <td class="Protected Abortion Clinic Access-cell">no</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">meets</td>
+      <td class="Mandatory Delay before Abortions-cell">harmful</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">no</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">2,573,820</td>
+      <td class="Number of Unintended Pregnancies-cell">115,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Rhode Island</td>
+      <td class="Percent of Pregnancies Unintended-cell">52%</td>
+      <td class="Emergency Contraception Laws-cell">no</td>
+      <td class="Protected Abortion Clinic Access-cell">no</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">weak</td>
+      <td class="Mandatory Delay before Abortions-cell">meets</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">weak</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">231,140</td>
+      <td class="Number of Unintended Pregnancies-cell">9,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">South Carolina</td>
+      <td class="Percent of Pregnancies Unintended-cell">50%</td>
+      <td class="Emergency Contraception Laws-cell">weak</td>
+      <td class="Protected Abortion Clinic Access-cell">no</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">limited</td>
+      <td class="Mandatory Delay before Abortions-cell">harmful</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">no</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">961,070</td>
+      <td class="Number of Unintended Pregnancies-cell">42,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">South Dakota</td>
+      <td class="Percent of Pregnancies Unintended-cell">46%</td>
+      <td class="Emergency Contraception Laws-cell">no</td>
+      <td class="Protected Abortion Clinic Access-cell">no</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">harmful</td>
+      <td class="Mandatory Delay before Abortions-cell">harmful</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">no</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">162,990</td>
+      <td class="Number of Unintended Pregnancies-cell">7,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Tennessee</td>
+      <td class="Percent of Pregnancies Unintended-cell">56%</td>
+      <td class="Emergency Contraception Laws-cell">no</td>
+      <td class="Protected Abortion Clinic Access-cell">no</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">harmful</td>
+      <td class="Mandatory Delay before Abortions-cell">meets</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">no</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">1,339,120</td>
+      <td class="Number of Unintended Pregnancies-cell">62,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Texas</td>
+      <td class="Percent of Pregnancies Unintended-cell">54%</td>
+      <td class="Emergency Contraception Laws-cell">no</td>
+      <td class="Protected Abortion Clinic Access-cell">no</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">limited</td>
+      <td class="Mandatory Delay before Abortions-cell">harmful</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">weak</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">5,468,970</td>
+      <td class="Number of Unintended Pregnancies-cell">298,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Utah</td>
+      <td class="Percent of Pregnancies Unintended-cell">36%</td>
+      <td class="Emergency Contraception Laws-cell">limited</td>
+      <td class="Protected Abortion Clinic Access-cell">no</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">weak</td>
+      <td class="Mandatory Delay before Abortions-cell">harmful</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">no</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">637,690</td>
+      <td class="Number of Unintended Pregnancies-cell">24,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Vermont</td>
+      <td class="Percent of Pregnancies Unintended-cell">46%</td>
+      <td class="Emergency Contraception Laws-cell">weak</td>
+      <td class="Protected Abortion Clinic Access-cell">no</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">weak</td>
+      <td class="Mandatory Delay before Abortions-cell">meets</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">meets</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">128,660</td>
+      <td class="Number of Unintended Pregnancies-cell">4,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Virginia</td>
+      <td class="Percent of Pregnancies Unintended-cell">54%</td>
+      <td class="Emergency Contraception Laws-cell">no</td>
+      <td class="Protected Abortion Clinic Access-cell">no</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">weak</td>
+      <td class="Mandatory Delay before Abortions-cell">harmful</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">weak</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">1,714,330</td>
+      <td class="Number of Unintended Pregnancies-cell">84,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Washington</td>
+      <td class="Percent of Pregnancies Unintended-cell">48%</td>
+      <td class="Emergency Contraception Laws-cell">meets</td>
+      <td class="Protected Abortion Clinic Access-cell">limited</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">weak</td>
+      <td class="Mandatory Delay before Abortions-cell">meets</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">meets</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">1,412,680</td>
+      <td class="Number of Unintended Pregnancies-cell">61,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">West Virginia</td>
+      <td class="Percent of Pregnancies Unintended-cell">52%</td>
+      <td class="Emergency Contraception Laws-cell">no</td>
+      <td class="Protected Abortion Clinic Access-cell">no</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">harmful</td>
+      <td class="Mandatory Delay before Abortions-cell">harmful</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">weak</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">366,360</td>
+      <td class="Number of Unintended Pregnancies-cell">15,000</td>
+    </tr>
+    <tr>
+      <td class="State-cell">Wisconsin</td>
+      <td class="Percent of Pregnancies Unintended-cell">46%</td>
+      <td class="Emergency Contraception Laws-cell">limited</td>
+      <td class="Protected Abortion Clinic Access-cell">limited</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">weak</td>
+      <td class="Mandatory Delay before Abortions-cell">harmful</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">meets</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">1,185,640</td>
+      <td class="Number of Unintended Pregnancies-cell">42,000</td>
+    </tr>
+    <tr class="lastRow">
+      <td class="State-cell">Wyoming</td>
+      <td class="Percent of Pregnancies Unintended-cell">44%</td>
+      <td class="Emergency Contraception Laws-cell">no</td>
+      <td class="Protected Abortion Clinic Access-cell">no</td>
+      <td class="Policies on Religious Refusals for Reproductive Services-cell">weak</td>
+      <td class="Mandatory Delay before Abortions-cell">meets</td>
+      <td class="Private Insurers Coverage of Contraceptives Laws-cell">weak</td>
+      <td class="Total Number of Females Aged 13-44 (Reproductive Age)-cell">109,270</td>
+      <td class="Number of Unintended Pregnancies-cell">4,000</td>
+    </tr>
+  </tbody>
+</table>
+<h5>Source: <a href="http://hrc.nwlc.org/policy-indicators">National Women's Law Center, 2010</a></h5>
+
+<table 
+  <thead>
+    <tr>
+      <th class="Category">Category</th>
+	  <th class="Emergency Contraception Laws-cell">Emergency Contraception Laws</th>
+      <th class="Protected Abortion Clinic Access-cell">Protected Abortion Clinic Access</th>
+      <th class="Religious Refusals for Reproductive Services Policies-cell">Religious Refusals for Reproductive Services Policies</th>
+      <th class="Mandatory Delay before Abortions-cell">Mandatory Delay before Abortions</th>
+      <th class="Private Insurerers Coverage of Contraceptives Laws-cell">Private Insurers Coverage of Contraceptives Laws</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>  <td class="Category"><strong>meets</strong></td>
+	  <td class="Emergency Contraception Laws-cell">a) requires sexual assault victims who go to an emergency room be given information about EC; b) requires the emergency room provide EC if a sexual assault victim asks for it; and c) allows pharmacists to dispense EC without a prescription.</td>
+      <td class="Protected Abortion Clinic Access-cell">prohibit all threats to clinic access</td>
+      <td class="Religious Refusals for Reproductive Services Policies-cell">law provides sufficient protections so a religious refusal is unlikely to compromise patient access to reproductive health care</td>
+      <td class="Mandatory Delay before Abortions-cell">no mandatory delay or biased counseling requirements</td>
+      <td class="Private Insurerers Coverage of Contraceptives Laws-cell">require private insurance companies to also cover all FDA-approved forms of contraception and have no refusal clause</td>
+    </tr>
+<tr>  <td class="Category"><strong><strong>limited</strong></td>
+	  <td class="Emergency Contraception Laws-cell">two of the policies</td>
+      <td class="Protected Abortion Clinic Access-cell">prohibit some threats to clinic access</td>
+      <td class="Religious Refusals for Reproductive Services Policies-cell">law provides some critical patient protections from a religious refusal to provide reproductive health care but does not go far enough</td>
+      <td class="Mandatory Delay before Abortions-cell"> </td>
+	  <td class="Private Insurerers Coverage of Contraceptives Laws-cell">require private insurance companies to also cover all FDA-approved forms of contraception but have a narrow refusal clause</td>
+    </tr>
+<tr>  <td class="Category"><strong>weak</strong></td>
+	  <td class="Emergency Contraception Laws-cell">one policy</td>
+	  <td class="Protected Abortion Clinic Access-cell"> </td>
+      <td class="Religious Refusals for Reproductive Services Policies-cell">patients do not receive protections or refusal rights outweigh patient protections</td>
+      <td class="Mandatory Delay before Abortions-cell"> </td>
+	  <td class="Private Insurerers Coverage of Contraceptives Laws-cell">require only certain types of insurers to cover contraception, or require all or some insurers to offer contraceptive coverage as a benefit in employer-sponsored insurance plans, but have not required a mandated benefit in insurance plans; and/or enacted a broad refusal clause</td>
+    </tr>
+<tr>  <td class="Category"><strong>no</strong></td>
+	  <td class="Emergency Contraception Laws-cell">none of the policies</td>
+	  <td class="Protected Abortion Clinic Access-cell">no protections for clinic access</td>
+      <td class="Religious Refusals for Reproductive Services Policies-cell"> </td>
+      <td class="Mandatory Delay before Abortions-cell"> </td>
+	  <td class="Private Insurerers Coverage of Contraceptives Laws-cell">do not require any contraceptive coverage</td>
+    </tr>
+<tr>  <td class="Category"><strong>harmful</strong></td>
+	  <td class="Emergency Contraception Laws-cell"> </td>
+	  <td class="Protected Abortion Clinic Access-cell"> </td>
+      <td class="Religious Refusals for Reproductive Services Policies-cell">law significantly compromises patient access to care when there is a religious refusal to provide reproductive health care services</td>
+      <td class="Mandatory Delay before Abortions-cell">mandatory delay or biased counseling requirements present</td>
+	  <td class="Private Insurerers Coverage of Contraceptives Laws-cell"> </td>
+    </tr>
+</table>	
+
+<p></p>
+<p></p>
+
+<div class = "article">
+    Garcia said the National Women's Law Center would like to see all of the policies here change to "meets." Required waiting periods and biased counseling
+    periods in particular, she said, are unnecessary burdens to getting abortions that shame women and make it harder to take care of their health. "Policies
+    that restrict access to health care send a message that politicians don't trust women to make their own decisions about their health care."
+</div>
+	
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/queue.v1.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="footable.js" type="text/javascript"></script>
+<script src="footable.sort.js" type="text/javascript"></script>
+<script>
+
+var width = 960,
+    height = 600;
+
+var rateById = d3.map();
+
+var quantize = d3.scale.quantize()
+    .domain([0, 60])
+    .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
+
+var projection = d3.geo.albersUsa()
+    .scale(1280)
+    .translate([width / 2, height / 2]);
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var svg = d3.select(".map").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+queue()
+    .defer(d3.json, "us.json")
+    .defer(d3.csv, "data.csv", function(d) { rateById.set(d.fips, +d.value); })
+    .await(ready);
+
+function ready(error, us) {
+  svg.append("g")
+      .attr("class", "states")
+    .selectAll("path")
+      .data(topojson.feature(us, us.objects.states).features)
+    .enter().append("path")
+      .attr("d", path)
+      .attr("class", function(d) {return quantize(rateById.get(d.id)); })
+
+}
+
+d3.select(self.frameElement).style("height", height + "px");
+
+$(document).ready(function () {
+    $('td:contains("harmful")').css("background", "rgb(230, 0, 92)").attr("data-value", 4);
+	$('td:contains("no")').css("background", "rgb(255, 77, 148)").attr("data-value", 3);
+	$('td:contains("weak")').css("background", "rgb(255, 130, 180)").attr("data-value", 2);
+	$('td:contains("limited")').css("background", "rgb(255, 204, 224)").attr("data-value", 1);
+	$('td:contains("meets")').css("background", "rgb(255, 250, 252)").attr("data-value", 0);
+	$('td:contains("Illinois")').css("background", "white");
+	$('td:contains("a) ")').css("background", "rgb(255, 250, 252)");
+	$('td:contains("all threats")').css("background", "rgb(255, 250, 252)");
+	$('td:contains("unlikely")').css("background", "rgb(255, 250, 252)");
+	$('td:contains("no mandatory")').css("background", "rgb(255, 250, 252)");
+	$('td:contains("no refusal")').css("background", "rgb(255, 250, 252)");
+	$('td:contains("not required")').css("background", "white");
+	$('td:contains("one p")').css("background", "rgb(255, 130, 180)")
+	$('td:contains("outweigh")').css("background", "rgb(255, 130, 180)")
+	$('td:contains("broad")').css("background", "rgb(255, 130, 180)")
+	$('td:contains("not go")').css("background", "rgb(255, 204, 224)");
+	$('td:contains("two")').css("background", "rgb(255, 204, 224)");
+	$('td:contains("some threats")').css("background", "rgb(255, 204, 224)");
+	$('td:contains("narrow")').css("background", "rgb(255, 204, 224)");
+	$('td:contains("compromises")').css("background", "rgb(230, 0, 92)")
+	$('td:contains("present")').css("background", "rgb(230, 0, 92)")
+	$('td:contains("36%")').css("background", "rgb(200,219,239)");
+	$('td:contains("37%")').css("background", "rgb(200,219,239)");
+	$('td:contains("38%")').css("background", "rgb(200,219,239)");
+	$('td:contains("39%")').css("background", "rgb(200,219,239)");
+	$('td:contains("40%")').css("background", "rgb(158,202,225)");
+	$('td:contains("41%")').css("background", "rgb(158,202,225)");
+	$('td:contains("42%")').css("background", "rgb(158,202,225)");
+	$('td:contains("43%")').css("background", "rgb(158,202,225)");
+	$('td:contains("44%")').css("background", "rgb(158,202,225)");
+	$('td:contains("45%")').css("background", "rgb(158,202,225)");
+	$('td:contains("46%")').css("background", "rgb(158,202,225)");
+	$('td:contains("47%")').css("background", "rgb(66,146,198)");
+	$('td:contains("48%")').css("background", "rgb(66,146,198)");
+	$('td:contains("49%")').css("background", "rgb(66,146,198)");
+	$('td:contains("50%")').css("background", "rgb(66,146,198)");
+	$('td:contains("51%")').css("background", "rgb(66,146,198)");
+	$('td:contains("52%")').css("background", "rgb(66,146,198)");
+	$('td:contains("53%")').css("background", "rgb(66,146,198)");
+	$('td:contains("54%")').css("background", "rgb(8,48,107)");
+	$('td:contains("55%")').css("background", "rgb(8,48,107)");
+	$('td:contains("56%")').css("background", "rgb(8,48,107)");
+	$('td:contains("57%")').css("background", "rgb(8,48,107)");
+	$('td:contains("58%")').css("background", "rgb(8,48,107)");
+	$('td:contains("59%")').css("background", "rgb(8,48,107)");
+	$('td:contains("60%")').css("background", "rgb(8,48,107)");
+	$('td:contains("61%")').css("background", "rgb(8,48,107)");
+	$('td:contains("62%")').css("background", "rgb(8,48,107)");
+	$('.footable').footable();
+
+});
+$(function () {
+     
+ });
+
+</script>
